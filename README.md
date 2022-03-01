@@ -1,6 +1,6 @@
 # tenextra
 
-Extra tools for parsing 10X VDJ annoations 
+Extra tools for parsing 10X VDJ annotations. 
 
 ### Purpose
 
