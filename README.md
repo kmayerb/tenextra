@@ -19,7 +19,9 @@ with the highest umi counts.
 ```python
 from tenextra.parse import select_likely_receptors
 clean_clones, all_clones, ct_chains, ct_pairs = \
-    select_likely_receptors(f = 'tenextra/data/filtered_contig_annotations_test.csv', threshold_chains = 10)
+    select_likely_receptors(
+        f = 'tenextra/data/filtered_contig_annotations_test.csv', 
+        threshold_chains = 10)
 ```
 
 1. `clean_clones` pd.DataFrame with most likely A:B pairing, only one pairing per barcode
