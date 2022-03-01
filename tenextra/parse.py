@@ -13,19 +13,20 @@ cDNA often include more than one TRA,TRB, presenting
 the need to identify real from artifactual 
 pair. 
 
-The procedure here, considers the frequency of  
-each unique chain (nucleotide-level), and how frequency 
-each alpha chain is paired with each unique beta chain.
+
 
 It is often obseved that an 'extra' chain matches a chain in a 
 high frequency pairing (the repertoires' highly expanded clonotypes),
 Perhpas this occurs because some of those cells lyse and there's ambient
 transcript in the reagant mix during droplet formation.  
 
+The procedure here, considers the frequency of  
+each unique chain (nucleotide-level), and how frequency 
+each alpha chain is paired with each unique beta chain. 
 We attempt to use that information to distinguish 'true' pairings from 
 artifacts. At the end of the day, if a cell still has multiple alphas/betas, 
 and no obvious contaminating receptor is found, the remaining choice 
-is to select, per signle cell barcode, the A:B chains the highest umi count. 
+is to select, per single cell barcode, the A:B chains the highest umi counts. 
 
 V1. This script was written without option for multiple batches 
 TODO: add a multibatch option ['batch_id', 'pool_id']
@@ -260,22 +261,7 @@ def select_likely_receptors( f,
     
     clean_clones     =  pd.concat([singles, clean_a, clean_b, clean_ab], sort = True)
 
-    # all_a = multi_a.groupby(cell_index_cols).apply(partial(_all_multi_inframe, 
-    #     chain='a', 
-    #     ct_chains = ct_chains, 
-    #     ct_pairs = ct_pairs)).reset_index(drop=True)
-    
-    # all_b = multi_b.groupby(cell_index_cols).apply(partial(_all_multi_inframe,
-    #     chain='b', 
-    #     ct_chains = ct_chains, 
-    #     ct_pairs = ct_pairs)).reset_index(drop=True)
-
-        
-    # all_s = singles.groupby(cell_index_cols).apply(partial(_all_multi_inframe,
-    #     chain='b', 
-    #     ct_chains = ct_chains, 
-    #     ct_pairs = ct_pairs)).reset_index(drop=True)
-    """For diagnostic purposes"""
+     """For diagnostic purposes"""
     all_clones = tr.groupby(cell_index_cols).apply(_all_multi_ab_inframe, 
         ct_chains = ct_chains, 
         ct_pairs = ct_pairs).reset_index(drop=True)
