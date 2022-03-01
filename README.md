@@ -3,14 +3,16 @@
 Extra tools for parsing 10X VDJ annoations 
 
 ### Purpose
-We consider the frequency of each unique chain (nucleotide-level), and how frequency 
-of each alpha chain is paired with each unique beta chain. 
-We attempt to use that information to distinguish 'true' pairings from 
-likley cell-free DNA artifacts. 
 
-At the end of the day, if a cell has multiple alphas/betas pairings,
-and no obvious contaminating receptor is found, the remaining choice 
-is to select, per single cell barcode, the A:B chains the highest umi counts. 
+We consider the frequency of each unique chain (nucleotide-level), and 
+the frequency of alpha-beta pairings within a pool of single cells.
+We attempt to use that information to distinguish 'true' pairings from 
+possible cell-free DNA artifacts. 
+
+In those cases, if a cell has multiple alphas/betas pairings,
+and no obvious contaminating receptor is found, the procedure 
+then is to select, per single cell barcode, the A:B chains 
+with the highest umi counts. 
 
 ### Basic Usage 
 

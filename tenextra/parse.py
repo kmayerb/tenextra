@@ -5,28 +5,18 @@ from functools import partial
 """
 Feb 28, 2022 
 
-Assumption. Each T Cell has a single pysiologically 
+Assumption. Each T Cell has one physiologically 
 relevant A:B TCR receptor. 
 
-However, VDJ receptors amplified from single cell
-cDNA often include more than one TRA,TRB, presenting
-the need to identify real from artifactual 
-pair. 
-
-
-
-It is often obseved that an 'extra' chain matches a chain in a 
-high frequency pairing (the repertoires' highly expanded clonotypes),
-Perhpas this occurs because some of those cells lyse and there's ambient
-transcript in the reagant mix during droplet formation.  
-
-The procedure here, considers the frequency of  
-each unique chain (nucleotide-level), and how frequency 
-each alpha chain is paired with each unique beta chain. 
+We consider the frequency of each unique chain (nucleotide-level), and 
+the frequency of alpha-beta pairings within a pool of single cells.
 We attempt to use that information to distinguish 'true' pairings from 
-artifacts. At the end of the day, if a cell still has multiple alphas/betas, 
-and no obvious contaminating receptor is found, the remaining choice 
-is to select, per single cell barcode, the A:B chains the highest umi counts. 
+possible cell-free DNA artifacts. 
+
+In those cases, if a cell has multiple alphas/betas pairings,
+and no obvious contaminating receptor is found, the procedure 
+then is to select, per single cell barcode, the A:B chains 
+with the highest umi counts. 
 
 V1. This script was written without option for multiple batches 
 TODO: add a multibatch option ['batch_id', 'pool_id']
