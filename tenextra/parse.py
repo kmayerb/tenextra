@@ -251,7 +251,7 @@ def select_likely_receptors( f,
     
     clean_clones     =  pd.concat([singles, clean_a, clean_b, clean_ab], sort = True)
 
-     """For diagnostic purposes"""
+    """For diagnostic purposes"""
     all_clones = tr.groupby(cell_index_cols).apply(_all_multi_ab_inframe, 
         ct_chains = ct_chains, 
         ct_pairs = ct_pairs).reset_index(drop=True)
