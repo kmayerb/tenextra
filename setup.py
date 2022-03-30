@@ -7,7 +7,7 @@ this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-opts = dict(name='tcrdist3',
+opts = dict(name='tenextra',
             maintainer='Koshlan Mayer-Blackwell',
             maintainer_email='kmayerbl@fredhutch.org',
             description='get most likly VDJ receptor pairs from single cells',
